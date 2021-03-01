@@ -21,12 +21,7 @@ const dadosCarros = [
     {modelo: 'Uno', consumo_gasolina: 15, consumo_alcool: 12, dias_aluguel: 9, valor_diaria: 75}
 ]
 
-let custoPorCarro = {
-    modelo: '',
-    custo_gasolina: 0,
-    custo_alcool: 0,
-    total_diarias:0
-}
+
 
 let orcamento = []
 let distancia = 3500
@@ -35,12 +30,28 @@ const precoAlcool = 3.29
 
 function calcularViagemPorVeiculo(){
     dadosCarros.map(carro => {
-        custoPorCarro.modelo = carro.modelo
-        custoPorCarro.custo_gasolina = `R$ ${((distancia / carro.consumo_gasolina) * precoGasolina).toFixed(2)}`
-        custoPorCarro.custo_alcool = `R$ ${((distancia / carro.consumo_alcool) * precoAlcool).toFixed(2)}`
-        custoPorCarro.total_diarias = `R$ ${(carro.valor_diaria * carro.dias_aluguel).toFixed(2).replace('.' , ',')}`
-        console.log(custoPorCarro)
+        let custoPorCarro = {
+            modelo: carro.modelo,
+            custo_gasolina: `R$ ${((distancia / carro.consumo_gasolina) * precoGasolina).toFixed(2).replace('.', ',')}`,
+            custo_alcool: `R$ ${((distancia / carro.consumo_alcool) * precoAlcool).toFixed(2).replace('.', ',')}`,
+            total_diarias: `R$ ${(carro.valor_diaria * carro.dias_aluguel).toFixed(2).replace('.', ',')}`
+        }
+
+        orcamento.push(custoPorCarro)
+
     })
+    
+    orcamento.sort((a,b) => {
+        if(a.total_diarias < b.total_diarias){
+            return 1
+        }
+        if(a.total_diarias > b.total_diarias){
+          return -1
+        }
+        return 0 
+    }).reverse()
+    
+    console.log(orcamento)
 }
 
 calcularViagemPorVeiculo()
