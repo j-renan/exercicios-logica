@@ -3,7 +3,6 @@
  se for mostre um print do número -->
 
 <?php
-$numeros = [35, 2, 23, 55, 66, 32, 8, 7, 16, 1, 1, 27, 43, 29];
 
 function numeroPrimo($num)
 {
@@ -13,8 +12,20 @@ function numeroPrimo($num)
         }
     }
     return true;
-    echo "$num";
 }
 
-numeroPrimo(5);
+
+function exibirNumerosPrimos()
+{
+    $numeros = [35, 2, 23, 55, 66, 32, 8, 7, 16, 1, 1, 27, 43, 29];
+    $primos = [];
+    foreach($numeros as $numero){
+        if(numeroPrimo($numero) && $numero != 1){          
+            array_push($primos, $numero);
+        }
+    }
+    print_r($primos);
+}
+
+echo exibirNumerosPrimos();
 ?>
