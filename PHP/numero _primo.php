@@ -16,5 +16,5 @@ function numeroPrimo($num)
     echo "$num";
 }
 
-numeroPrimo(5)
+numeroPrimo(5);
 ?>
