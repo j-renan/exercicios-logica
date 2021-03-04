@@ -28,8 +28,8 @@ function calcularMedia(){
         let media = (aluno.nota1 + aluno.nota2) / 2
         dadosAlunos[index]['media'] = media
         if(aluno.media >= 6 && aluno.faltas <= 4){
-            dadosAlunos[index]['aprovado'] = true
-        } else dadosAlunos[index]['aprovado'] = false
+            dadosAlunos[index]['aprovado'] = 'Sim'
+        } else dadosAlunos[index]['aprovado'] = 'Não'
     })
     console.log(dadosAlunos)
 }

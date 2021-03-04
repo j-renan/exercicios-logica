@@ -24,7 +24,7 @@ const dadosCarros = [
 
 
 let orcamento = []
-let distancia = 3500
+const distancia = 3500
 const precoGasolina = 5
 const precoAlcool = 3.29
 
